@@ -53,12 +53,14 @@ class TasksController < ApplicationController
     redirect_to tasks_url
   end
 
-def set_task
-  @task = Task.find(params[:id])
-end
+  private
 
-# Strong Parameter
-  def tasklist_params
-    params.require(:task).permit(:content, :status)
+  def set_task
+    @task = Task.find(params[:id])
   end
+
+  # Strong Parameter
+    def tasklist_params
+      params.require(:task).permit(:content, :status)
+    end
 end
